@@ -113,6 +113,7 @@ class Robinhood:
             payload['mfa_code'] = mfa_code
         try:
             res = self.session.post(endpoints.login(), data=payload, timeout=15)
+            print(res.text)
             res.raise_for_status()
             data = res.json()
         except requests.exceptions.HTTPError:
